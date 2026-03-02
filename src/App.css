@@ -1,0 +1,127 @@
+:root {
+  --gold: #fbbf24;
+  --bg-dark: #0f172a;
+  --overlay-black: rgba(0, 0, 0, 0.8);
+  --overlay-gradient: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  --blur-brightness: brightness(0.4);
+  --shadow-color: rgba(0, 0, 0, 0.7);
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.hub-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.hub-options {
+  display: flex;
+  gap: 20px;
+  width: 90%;
+  max-width: 1100px;
+  justify-content: center;
+}
+
+.hub-card {
+  flex: 1;
+  height: 500px;
+  width: 300px;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+}
+
+.hub-card:hover {
+  transform: scale(1.02);
+}
+
+.hub-image-container {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hub-image-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(15px) var(--blur-brightness);
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+.hub-image-champ {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+}
+
+.hub-image-item {
+  position: relative;
+  z-index: 2;
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 15px var(--shadow-color));
+}
+
+.hub-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 30px 0;
+  background: var(--overlay-gradient);
+  text-align: center;
+  z-index: 3;
+}
+
+.hub-overlay span {
+  color: var(--gold);
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+  .hub-options {
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    gap: 15px;
+  }
+
+  .hub-card {
+    width: 100%;
+    height: 380px;
+  }
+
+  .hub-image-item {
+    width: 180px;
+    height: 180px;
+  }
+}

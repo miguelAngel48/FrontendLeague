@@ -1,0 +1,115 @@
+:root {
+    --gold: #fbbf24;
+    --gold-glow: rgba(251, 191, 36, 0.4);
+    --bg-card: rgba(15, 23, 42, 0.8);
+    --bg-input: rgba(15, 23, 42, 0.8);
+    --border-card: #334155;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --error-red: #ef4444;
+}
+
+.items-container {
+    padding: 40px;
+    color: white;
+    min-height: 100vh;
+}
+
+.items-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--gold);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.search-input {
+    width: 350px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 25px;
+    border: 2px solid var(--gold);
+    background: var(--bg-input);
+    color: white;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+    box-shadow: 0 0 15px var(--gold-glow);
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.item-card {
+    background-color: var(--bg-card);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--border-card);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.item-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+}
+
+.item-image {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    border: 2px solid var(--gold);
+}
+
+.item-name {
+    margin: 15px 0 5px 0;
+    font-size: 1.1rem;
+    color: var(--text-main);
+}
+
+.item-description {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    max-width: 350px;
+}
+
+.item-price {
+    margin-top: auto;
+    font-weight: bold;
+    color: var(--gold);
+}
+
+.no-results {
+    color: var(--error-red);
+    text-align: center;
+    grid-column: 1 / -1;
+    margin-top: 40px;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .search-input {
+        width: 85%;
+    }
+
+    .items-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
